@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://nixoh6ddjot8"]
+
+[ext_resource type="Script" path="res://MainSegment.gd" id="1_c34el"]
+[ext_resource type="Texture2D" uid="uid://b1moruhqmhbmf" path="res://Sprites/body.png" id="1_lqtgh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h36c8"]
+size = Vector2(90, 90)
+
+[sub_resource type="TileSet" id="TileSet_w6t0d"]
+tile_size = Vector2i(40, 40)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainSegment" type="Area2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(0.442821, 0.442821)
+script = ExtResource("1_c34el")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainSegment"]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_h36c8")
+
+[node name="Body" type="Sprite2D" parent="MainSegment"]
+position = Vector2(40.0222, 40.1986)
+scale = Vector2(2.24889, 2.2588)
+texture = ExtResource("1_lqtgh")
+
+[node name="RayCast2D" type="RayCast2D" parent="MainSegment"]
+position = Vector2(40, 83)
+
+[node name="RayCast2D3" type="RayCast2D" parent="MainSegment"]
+position = Vector2(40, -5)
+rotation = 3.14159
+
+[node name="RayCast2D4" type="RayCast2D" parent="MainSegment"]
+position = Vector2(-3, 40)
+rotation = 1.57079
+
+[node name="RayCast2D2" type="RayCast2D" parent="MainSegment"]
+position = Vector2(85, 39)
+target_position = Vector2(50, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_w6t0d")
+format = 2
