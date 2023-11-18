@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h36c8"]
 size = Vector2(90, 90)
 
-[node name="OldSegment" type="StaticBody2D"]
+[node name="OldSegment" type="StaticBody2D" groups=["collisionobjects"]]
 position = Vector2(2, 2)
 scale = Vector2(0.442821, 0.442821)
 script = ExtResource("1_64t3x")

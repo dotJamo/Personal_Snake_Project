@@ -9,6 +9,7 @@ func _ready():
 
 func _process(_delta):
 	get_node("GlobalTimer").wait_time = speed
+	
 
 
 func _on_global_timer_timeout():
@@ -24,7 +25,7 @@ func _food_spawn():
 	var all_pos : Array = []
 	var _food_pos = 0
 	for pos in self.get_children():
-		if pos is Area2D:
+		if pos is Node2D:
 			all_pos.append(pos.position)
 	print(all_pos)
 	
