@@ -8,6 +8,7 @@ var inputs = {"ui_right": Vector2.RIGHT,
 			"ui_down": Vector2.DOWN}
 var started:bool=false
 @onready var gtimer = get_node("/root/Main/GlobalTimer")
+var all_pos:Array = []
 
 
 func _ready():
@@ -18,8 +19,8 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir) and inputs[dir] != -last_direction:
 			move(dir)
-		else:
-			pass
+		if event.is_action_pressed(dir) and started == false:
+			move(dir)
 
 func move(dir):
 	started = true
@@ -31,8 +32,18 @@ func move(dir):
 
 func _on_global_timer_timeout():
 	if started == true:
-		var old_position = position
+		get_all_object_position_but_not_food()
 		var new_position = position + last_direction * tile_size
-		position = new_position
+		for check in all_pos:
+			if new_position == check:
+				get_tree().reload_current_scene()
+			if new_position.x >= 440 or new_position.x <= 0 or new_position.y >= 680 or new_position.y <= 0:
+				get_tree().reload_current_scene()
+			else:
+				all_pos.clear()
+				position = new_position
 		
-		
+func get_all_object_position_but_not_food():
+	for pos in get_node("/root/Main/").get_children():
+		if pos.is_in_group("collisionobjects"):
+			all_pos.append(pos.position)

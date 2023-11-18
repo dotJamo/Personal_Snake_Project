@@ -21,7 +21,7 @@ length = 5
 speed = 0.3
 
 [node name="MainSegment" type="Area2D" parent="."]
-position = Vector2(2, 2)
+position = Vector2(36, 33)
 scale = Vector2(0.442821, 0.442821)
 script = ExtResource("1_c34el")
 metadata/_edit_group_ = true
@@ -57,7 +57,7 @@ format = 2
 [node name="GlobalTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Food" type="Area2D" parent="." groups=["collisionobjects"]]
+[node name="Food" type="Area2D" parent="."]
 position = Vector2(146, 88)
 metadata/_edit_group_ = true
 
@@ -68,7 +68,6 @@ texture = ExtResource("4_huwmf")
 shape = SubResource("RectangleShape2D_rmpl8")
 
 [node name="Frame" type="Area2D" parent="."]
-visible = false
 
 [node name="Frame2" type="Sprite2D" parent="Frame"]
 position = Vector2(240, 360)
