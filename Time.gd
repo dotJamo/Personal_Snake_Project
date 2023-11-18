@@ -19,9 +19,9 @@ func _on_global_timer_timeout():
 		createsegment.position = get_node("MainSegment").position
 		add_child(createsegment)
 		print("Spawned Segment")
-		_food_spawn()
+		_get_all_object_position()
 		
-func _food_spawn():
+func _get_all_object_position():
 	var all_pos : Array = []
 	var _food_pos = 0
 	for pos in self.get_children():

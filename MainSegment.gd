@@ -16,19 +16,23 @@ func _ready():
 
 func _unhandled_input(event):
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if event.is_action_pressed(dir) and inputs[dir] != -last_direction:
 			move(dir)
+		else:
+			pass
 
 func move(dir):
 	started = true
 	last_direction = inputs[dir]
 	gtimer.stop()
-	gtimer.wait_time = 0.05
+	gtimer.wait_time = 0.01
 	gtimer.start()
 	
 
 func _on_global_timer_timeout():
 	if started == true:
 		var old_position = position
-		position += last_direction * tile_size
+		var new_position = position + last_direction * tile_size
+		position = new_position
+		
 		
