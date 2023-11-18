@@ -1,18 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5383ny1vl8xv"]
+[gd_scene load_steps=4 format=3 uid="uid://b5383ny1vl8xv"]
 
 [ext_resource type="Texture2D" uid="uid://cmmyn4mjamrdo" path="res://Sprites/dot.png" id="1_mrum0"]
+[ext_resource type="Script" path="res://food.gd" id="1_st62d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmpl8"]
 size = Vector2(38, 38)
 
 [node name="Food" type="Area2D"]
 position = Vector2(147, 88)
+script = ExtResource("1_st62d")
 metadata/_edit_group_ = true
 
 [node name="Dot" type="Sprite2D" parent="."]
-position = Vector2(-2, -1)
+position = Vector2(18, 19)
 texture = ExtResource("1_mrum0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(19, 19)
 shape = SubResource("RectangleShape2D_rmpl8")

@@ -9,7 +9,8 @@ var inputs = {"ui_right": Vector2.RIGHT,
 var started:bool=false
 @onready var gtimer = get_node("/root/Main/GlobalTimer")
 var all_pos:Array = []
-
+@onready var food = get_node("/root/Main/Food")
+@onready var main = get_node("/root/Main/")
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -40,9 +41,12 @@ func _on_global_timer_timeout():
 			if new_position.x >= 440 or new_position.x <= 0 or new_position.y >= 680 or new_position.y <= 0:
 				get_tree().reload_current_scene()
 		all_pos.clear()
+		if new_position == food.position:
+			main.food_spawn()
+			main.length += 1
+			main.speed *= .97
 		position = new_position
-		
 func get_all_object_position_but_not_food():
-	for pos in get_node("/root/Main/").get_children():
+	for pos in main.get_children():
 		if pos.is_in_group("collisionobjects"):
 			all_pos.append(pos.position)

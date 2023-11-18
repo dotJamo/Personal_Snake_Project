@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nixoh6ddjot8"]
+[gd_scene load_steps=7 format=3 uid="uid://nixoh6ddjot8"]
 
 [ext_resource type="Script" path="res://Time.gd" id="1_0i817"]
 [ext_resource type="Script" path="res://MainSegment.gd" id="1_c34el"]
@@ -9,15 +9,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h36c8"]
 size = Vector2(90, 90)
 
-[sub_resource type="TileSet" id="TileSet_w6t0d"]
-tile_size = Vector2i(40, 40)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0i817")
 speed = 0.35
 
 [node name="MainSegment" type="Area2D" parent="."]
-position = Vector2(36, 33)
+position = Vector2(33, 26)
 scale = Vector2(0.442821, 0.442821)
 script = ExtResource("1_c34el")
 metadata/_edit_group_ = true
@@ -46,18 +43,13 @@ rotation = 1.57079
 position = Vector2(85, 39)
 target_position = Vector2(50, 0)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_w6t0d")
-format = 2
-
 [node name="GlobalTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Food" parent="." instance=ExtResource("4_k0qlu")]
+position = Vector2(205, -133)
 
-[node name="Frame" type="Area2D" parent="."]
-
-[node name="Frame2" type="Sprite2D" parent="Frame"]
+[node name="Frame2" type="Sprite2D" parent="."]
 position = Vector2(240, 360)
 scale = Vector2(1.125, 1.07778)
 texture = ExtResource("5_jbanh")
