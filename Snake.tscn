@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://nixoh6ddjot8"]
+[gd_scene load_steps=8 format=3 uid="uid://nixoh6ddjot8"]
 
 [ext_resource type="Script" path="res://Time.gd" id="1_0i817"]
 [ext_resource type="Script" path="res://MainSegment.gd" id="1_c34el"]
 [ext_resource type="Texture2D" uid="uid://b1moruhqmhbmf" path="res://Sprites/body.png" id="1_lqtgh"]
-[ext_resource type="Texture2D" uid="uid://cmmyn4mjamrdo" path="res://Sprites/dot.png" id="4_huwmf"]
+[ext_resource type="PackedScene" uid="uid://b5383ny1vl8xv" path="res://food.tscn" id="4_k0qlu"]
 [ext_resource type="Texture2D" uid="uid://cckw2owpn1oj1" path="res://Sprites/frame.png" id="5_jbanh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h36c8"]
@@ -12,13 +12,9 @@ size = Vector2(90, 90)
 [sub_resource type="TileSet" id="TileSet_w6t0d"]
 tile_size = Vector2i(40, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmpl8"]
-size = Vector2(38, 38)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0i817")
-length = 5
-speed = 0.3
+speed = 0.35
 
 [node name="MainSegment" type="Area2D" parent="."]
 position = Vector2(36, 33)
@@ -57,15 +53,7 @@ format = 2
 [node name="GlobalTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Food" type="Area2D" parent="."]
-position = Vector2(146, 88)
-metadata/_edit_group_ = true
-
-[node name="Dot" type="Sprite2D" parent="Food"]
-texture = ExtResource("4_huwmf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Food"]
-shape = SubResource("RectangleShape2D_rmpl8")
+[node name="Food" parent="." instance=ExtResource("4_k0qlu")]
 
 [node name="Frame" type="Area2D" parent="."]
 

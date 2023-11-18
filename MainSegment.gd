@@ -1,7 +1,7 @@
 extends Area2D
 
 var last_direction = Vector2.RIGHT
-var tile_size : int = 40
+@onready var tile_size : int = get_node("/root/Main/").tile_size
 var inputs = {"ui_right": Vector2.RIGHT,
 			"ui_left": Vector2.LEFT,
 			"ui_up": Vector2.UP,
@@ -39,9 +39,8 @@ func _on_global_timer_timeout():
 				get_tree().reload_current_scene()
 			if new_position.x >= 440 or new_position.x <= 0 or new_position.y >= 680 or new_position.y <= 0:
 				get_tree().reload_current_scene()
-			else:
-				all_pos.clear()
-				position = new_position
+		all_pos.clear()
+		position = new_position
 		
 func get_all_object_position_but_not_food():
 	for pos in get_node("/root/Main/").get_children():

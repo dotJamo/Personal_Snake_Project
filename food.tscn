@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5383ny1vl8xv"]
+
+[ext_resource type="Texture2D" uid="uid://cmmyn4mjamrdo" path="res://Sprites/dot.png" id="1_mrum0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmpl8"]
+size = Vector2(38, 38)
+
+[node name="Food" type="Area2D"]
+position = Vector2(147, 88)
+metadata/_edit_group_ = true
+
+[node name="Dot" type="Sprite2D" parent="."]
+position = Vector2(-2, -1)
+texture = ExtResource("1_mrum0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_rmpl8")

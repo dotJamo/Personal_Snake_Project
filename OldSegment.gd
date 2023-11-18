@@ -12,4 +12,3 @@ func _on_global_timer_timeout():
 	lifetime += 1
 	if lifetime == length:
 		queue_free()
-	
